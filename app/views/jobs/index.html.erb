@@ -1,0 +1,29 @@
+<h1>Index</h1>
+
+<b>Type of user:</b> <%= @user.type %>
+<hr>
+
+<% @jobs.each do |job| %>
+    <b>Title:</b>
+    <%= job.title %> <br>
+    <b>Description:</b>
+    <%= job.description %> <br>
+    <b>Price:</b>
+    <%= job.price %> <br>
+    <b>Currency:</b>
+    <%= job.currency %> <br>
+    <b>Address:</b>
+    <%= job.address %> <br>
+    <b>Latitude:</b>
+    <%= job.latitude %> <br>
+    <b>Longtitude:</b>
+    <%= job.longtitude %> <br>
+    <%= link_to 'Show', job %>
+    <%= link_to 'Edit', edit_job_path(job) %>
+    <%= link_to 'Destroy', job, method: :delete, data: { confirm: 'Are you sure?' } %> <hr>
+<% end %>
+
+<br>
+
+<%= link_to 'New Job', new_job_path %> 
+
