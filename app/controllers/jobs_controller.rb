@@ -5,8 +5,8 @@ class JobsController < ApplicationController
   # GET /jobs
   # GET /jobs.json
   def index
+    @user = User.find(current_user.id)
     @jobs = Job.all
-    @user = current_user
   end
 
   # GET /jobs/1
@@ -21,6 +21,8 @@ class JobsController < ApplicationController
 
   # GET /jobs/1/edit
   def edit
+    @job = Job.find(params[:id])
+    redirect_to(jobs_path, notice: "Can't do that homes") unless @job.user_id == current_user.id
   end
 
   # POST /jobs
