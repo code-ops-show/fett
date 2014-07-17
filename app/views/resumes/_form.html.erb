@@ -1,0 +1,18 @@
+  <%= form_for(@resume) do |f| %>
+    <%= f.label :personality_traits %>
+    <%= f.text_field :personality_traits %>
+
+    <%= f.label :summary %>
+    <%= f.text_field :summary %>
+
+    <%= f.label :languages %>
+    <%= f.text_field :languages %>
+
+    <%= f.label :education_history %>
+    <%= f.text_field :education_history %>
+
+    <%= f.label :work_history %>
+    <%= f.text_field :work_history %>
+
+    <%= f.submit "Create Resume", class: "btn btn-large btn-primary" %>
+<% end %>
