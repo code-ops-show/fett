@@ -52,12 +52,14 @@ class JobsController < ApplicationController
   # DELETE /jobs/1
   # DELETE /jobs/1.json
   def destroy
-    @job.destroy
-    respond_to do |format|
-      format.html { redirect_to jobs_url, notice: 'Job was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+    @job = Job.find(params[:id])
+    if  @job.user_id == current_user.id
+      @job.destroy
+      redirect_to jobs_path
+    else
+      redirect_to(jobs_path, notice: "Can't do that homes")
   end
+end
 
   private
 
