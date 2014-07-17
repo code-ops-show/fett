@@ -1,49 +1,61 @@
+
 $offwhite: #f9f9f9
 $dark_grey: #5e5e5e 
 $cyan: #00bcd4
+$orange: #f39c12
 
 
 body
-	background-color: $offwhite
-	color: $dark_grey
+  background-color: $offwhite
+  color: $dark_grey
 
 
 input, textarea
-	width: 100%
-	margin-bottom: 24px
-	border: 2px solid white
-	background-color: transparent
-
-.navbar
-	background-color: #bdc3c7
-
-.navbar-default
-	border-bottom: 2px solid #f5f5f5
-
+  width: 100%
+  margin-bottom: 24px
+  border: 2px solid white
+  background-color: transparent
 
 // Navigation
 
-
+.navbar
+  margin-bottom: 0px
+  border: 0px !important
 
 .navbar-default
-	background-color: $cyan
-	.navbar-brand
-		color: white
-	.navbar-nav li a
-		color: white
+  background-color: $orange
+  .navbar-brand
+    color: white
+  .navbar-nav li a
+    color: white
 
+.navbar-default
+  border-bottom: 2px solid #f5f5f5
 
+.secondary-nav
+  background-color: #eee
+  margin-bottom: 24px
 
+.secondary-nav li a
+  color: $dark_grey !important
+  font-weight: 500
+
+.navbar-brand
+  font-size: 24px
 
 
 // Cards
 
+.single-card-container
+  padding: 24px
+  // position: relative
+  // top: -123px
 
 
 .card
-	box-shadow: 0px 1px 3px rgba(0,0,0,0.2)
-	border-radius: 2px
-	background-color: white
+  box-shadow: 0px 1px 3px rgba(0,0,0,0.2)
+  border-radius: 2px
+  background-color: white
 
 
 
