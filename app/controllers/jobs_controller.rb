@@ -15,7 +15,7 @@ class JobsController < ApplicationController
 
   # GET /jobs/new
   def new
-    @job = current_user.jobs.build
+    @job = current_user.jobs.new
   end
 
   # GET /jobs/1/edit
@@ -27,9 +27,9 @@ class JobsController < ApplicationController
   # POST /jobs
   # POST /jobs.json
   def create
-    @job = current_user.jobs.build(job_params)
+    @job = current_user.jobs.new(job_params)
     if @job.save
-      redirect_to jobs_path
+      redirect_to(jobs_path, notice: "Job was created succesfully amigo!")
     else
       render :new
     end
