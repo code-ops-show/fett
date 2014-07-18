@@ -1,6 +1,7 @@
 class ResumesController < ApplicationController
+
   def index
-    @resumes = Resume.all
+    @resume = Resume.last
   end
 
   def show
@@ -14,6 +15,10 @@ class ResumesController < ApplicationController
   end
 
   def create
+   @resume = current_user.build_resume(resume_params)
+    if @resume.save
+      redirect_to resumes_path
+    end   
   end
 
   def update
@@ -21,5 +26,14 @@ class ResumesController < ApplicationController
 
   def destroy
   end
+
+  # private
+
+  def resume_params
+    params.require(:resume).permit(:personality_traits, :summary, :languages, :education_history, :work_history)
+  end
+
 end
+
+
 

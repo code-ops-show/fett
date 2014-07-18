@@ -1,18 +1,34 @@
   <%= form_for(@resume) do |f| %>
-    <%= f.label :personality_traits %>
-    <%= f.text_field :personality_traits %>
+  <% if @resume.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@resume.errors.count, "error") %> prohibited this resume from being saved:</h2>
 
-    <%= f.label :summary %>
-    <%= f.text_field :summary %>
+      <ul>
+      <% @job.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+   <% end %>
+<div class="field"><%= f.label :personality_traits %>
+  <%= f.text_field :personality_traits %></div>
 
-    <%= f.label :languages %>
-    <%= f.text_field :languages %>
+<div class="field"><%= f.label :summary %>
+  <%= f.text_field :summary %></div>
 
-    <%= f.label :education_history %>
-    <%= f.text_field :education_history %>
+<div class="field"><%= f.label :languages %>
+  <%= f.text_field :languages %></div>
 
-    <%= f.label :work_history %>
-    <%= f.text_field :work_history %>
+<div class="field"><%= f.label :education_history %>
+  <%= f.text_field :education_history %></div>
 
-    <%= f.submit "Create Resume", class: "btn btn-large btn-primary" %>
+<div class="field"><%= f.label :work_history %>
+  <%= f.text_field :work_history %></div>
+<div class="field">
+      <%= f.submit "Create Resume", class: "btn btn-large btn-primary" %>
+</div>
 <% end %>
+
+
+
+
