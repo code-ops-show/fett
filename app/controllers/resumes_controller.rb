@@ -2,6 +2,7 @@ class ResumesController < ApplicationController
 
   def index
     @resume = Resume.last
+    @userxx = current_user
   end
 
   def show

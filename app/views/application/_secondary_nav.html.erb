@@ -2,7 +2,7 @@
 	<div class="container">
 		<ul class="nav navbar-nav navbar-right">
 		<% if current_user %>
-			<% case current_user.type %>
+			<% case current_user.class.to_s %>
 				<% when "Employer" %>
 					<li><%= link_to 'New Job', new_job_path %></li>
 				<% when "Employee" %>

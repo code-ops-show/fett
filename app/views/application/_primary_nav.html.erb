@@ -3,7 +3,11 @@
   	<div class="navbar-header">
       <a class="navbar-brand" href="#">Boba Fett</a>
     </div> 
- 
+      <ul class="nav navbar-nav">
+        <li>
+          <%= link_to 'Jobs', jobs_path %>
+        </li>
+      </ul>
       <ul class="nav navbar-nav navbar-right">
         <% if user_signed_in? %>
           <li>
