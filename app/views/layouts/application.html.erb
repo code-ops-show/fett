@@ -11,12 +11,19 @@
 <%= render 'primary_nav' %>
 <%= render 'secondary_nav' %>
 
-<div class="container card">
 
-<p class="notice"><%= notice %></p>
-<p class="alert"><%= alert %></p>
+<% if notice %>
+	<div class="notice">
+		<p><%= notice %></p>
+	</div>
+<% end %>
+<% if notice %>
+	<div class="alert">
+		<p><%= alert %></p>
+	</div>
+<% end %>
 
-
+<div class="container">
   <%= yield %>
 </div>
 

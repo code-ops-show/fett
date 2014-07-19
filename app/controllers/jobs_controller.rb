@@ -56,7 +56,7 @@ class JobsController < ApplicationController
     @job = Job.find(params[:id])
     if  @job.user_id == current_user.id
       @job.destroy
-      redirect_to jobs_path
+      redirect_to(jobs_path, notice: "The post was deleted successfully amigo!")
     else
       redirect_to(jobs_path, notice: "Can't do that homes")
   end
