@@ -4,29 +4,29 @@
 
 
 <% @jobs.each do |job| %>
-    <div class="card">
-        <b>Title:</b>
-        <%= job.title %> <br>
-        <b>Description:</b>
-        <%= job.description %> <br>
-        <b>Price:</b>
-        <%= job.price %> <br>
-        <b>Currency:</b>
-        <%= job.currency %> <br>
-        <b>Address:</b>
-        <%= job.address %> <br>
-        <b>Latitude:</b>
-        <%= job.latitude %> <br>
-        <b>Longtitude:</b>
-        <%= job.longtitude %> <br>
-        <b>Posted by: </b>
-        <%= @user.email %><br>
-        <%= link_to 'Show', job %>
-        <% if @user.id == job.user_id %>
-            <%= link_to 'Edit', edit_job_path(job) %>
-            <%= link_to 'Destroy', job, method: :delete, data: { confirm: 'Are you sure?' } %>
-        <% end %>
-    </div>
+		<div class="card">
+				<b>Title:</b>
+				<%= job.title %> <br>
+				<b>Description:</b>
+				<%= job.description %> <br>
+				<b>Price:</b>
+				<%= job.price %> <br>
+				<b>Currency:</b>
+				<%= job.currency %> <br>
+				<b>Address:</b>
+				<%= job.address %> <br>
+				<b>Latitude:</b>
+				<%= job.latitude %> <br>
+				<b>Longtitude:</b>
+				<%= job.longtitude %> <br>
+				<b>Posted by: </b>
+				<%= @user.email %><br>
+				<%= link_to 'Show', job %>
+				<% if @user.id == job.user_id %>
+						<%= link_to 'Edit', edit_job_path(job) %>
+						<%= link_to 'Destroy', job, method: :delete, data: { confirm: 'Are you sure?' } %>
+				<% end %>
+		</div>
 <% end %>
 
 

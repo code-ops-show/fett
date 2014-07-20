@@ -1,8 +1,7 @@
 class ResumesController < ApplicationController
 
   def index
-    @resume = Resume.last
-    @userxx = current_user
+    @resume = current_user.resume
   end
 
   def show
@@ -13,6 +12,7 @@ class ResumesController < ApplicationController
   end
 
   def edit
+    @resume = current_user.resume
   end
 
   def create

@@ -6,6 +6,7 @@ class JobsController < ApplicationController
   def index
     @user = User.find(current_user.id)
     @jobs = Job.all
+    @my_jobs = current_user.jobs
   end
 
   # GET /jobs/1
