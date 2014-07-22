@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  devise_for :users, controllers: { user: "users/users" }
+  devise_for :users, controllers: { user: "users/users", omniauth_callbacks: "omniauth_callbacks" }
   root 'jobs#index' # Root of the page 
   resources :jobs, :resumes # RESTful routes for the main resources
   match 'profile', to: 'dashboard#index', via: :all # Custom routes for user's dashboard

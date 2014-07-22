@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
-	devise :database_authenticatable, :registerable,
-         :rememberable, :validatable
+	devise :database_authenticatable, :registerable, 
+         :rememberable, :validatable, :omniauthable, :omniauth_providers => [:github]
+
 end
