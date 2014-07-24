@@ -1,8 +1,8 @@
 class User < ActiveRecord::Base
 	devise :database_authenticatable, :registerable, 
          :rememberable, :validatable, :omniauthable, :omniauth_providers => [:github]
-
-
+  validates_presence_of :first_name, :last_name, :email, :password
+  validates_uniqueness_of :email
 
 
 def self.from_omniauth(auth)
@@ -32,13 +32,5 @@ def email_required?
   super && provider.blank?
 end
 
-def update_with_password(params, *options)
-  if encrypted_password.blank?
-    update_attributes(params, *options)
-  else
-    super
-  end
-
-end
 
 end

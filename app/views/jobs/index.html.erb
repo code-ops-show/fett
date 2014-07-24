@@ -4,6 +4,8 @@
 
 <% @jobs.each do |job| %>
 		<div class="card">
+				<b>Posted by:</b>
+				<%= User.find(job.user_id).email %> <br>
 				<b>Title:</b>
 				<%= job.title %> <br>
 				<b>Description:</b>
@@ -18,8 +20,6 @@
 				<%= job.latitude %> <br>
 				<b>Longtitude:</b>
 				<%= job.longtitude %> <br>
-				<b>Posted by: </b>
-				<%= @user.email %><br>
 				<%= link_to 'Show', job %>
 				<% if @user.id == job.user_id %>
 						<%= link_to 'Edit', edit_job_path(job) %>
