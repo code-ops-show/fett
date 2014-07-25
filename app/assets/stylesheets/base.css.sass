@@ -85,9 +85,9 @@ header
   text-align: center
   h1
     display: inline-block
-    margin-bottom: 18px
+    margin-bottom: 10px
     padding-bottom: 2px
-    border-bottom: 6px solid #f39c12  
+    border-bottom: 4px solid #f39c12  
 
 .border-right
   border-right: 1px solid #eee
@@ -100,6 +100,13 @@ header
     padding: 120px 0
     &:hover
       background-image: image-url("food.png")
+    h2
+      color: #5e5e5e
+  
+
+// .col-md-6:hover > .with-pseudo:after
+//   background-color: #fac564
+
 
 .sub-heading b
   color: #f39c12   
@@ -107,3 +114,27 @@ header
 .sign-in-module
   padding: 48px 24px
   text-align: center
+
+.with-pseudo:after
+  content: "or"
+  position: absolute
+  top: 120px
+  right: -14px
+  color: #5e5e5e
+  background-color: white
+  font-size: 30px
+  font-weight: 500
+  z-index: 100
+
+.navbar-left
+  text-align: left
+
+.navbar-center
+  text-align: center
+
+.navbar-right
+  text-align: right
+
+.navbar-nav > a
+  padding: 15px
+  display: inline-block

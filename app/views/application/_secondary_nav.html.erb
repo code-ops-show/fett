@@ -1,14 +1,21 @@
 <nav class="navbar navbar-default secondary-nav">
 	<div class="container">
-		<ul class="nav navbar-nav navbar-right">
+		<div class="nav navbar-nav navbar-left col-md-4">
+			<a>back link</a>
+		</div>
+		<div class="nav navbar-nav navbar-center col-md-4">
+			<a><%= yield :title %></a>
+		</div>
+
+		<div class="nav navbar-nav navbar-right col-md-4">
 		<% if current_user %>
 			<% case current_user.class.to_s %>
 				<% when "Employer" %>
-					<li><%= link_to 'New Job', new_job_path %></li>
+					<%= link_to 'New Job', new_job_path %>
 				<% when "Employee" %>
-					<li><%= link_to 'Add a Resume', new_resume_path %></li> 
+					<%= link_to 'Add a Resume', new_resume_path %>
 				<% end %> 
 				<% end %>
-		</ul>
+		</div>
 	</div>
 </nav>

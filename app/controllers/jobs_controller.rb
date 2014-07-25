@@ -1,11 +1,11 @@
 class JobsController < ApplicationController
-  before_action :authenticate_user!
+  before_action :authenticate_user!, except: [:index, :new]
 
   # GET /jobs
   # GET /jobs.json
   def index
-    @user = User.find(current_user.id)
     @jobs = Job.all
+    @user = User.find(current_user.id)
   end
 
   # GET /jobs/1
@@ -16,7 +16,8 @@ class JobsController < ApplicationController
 
   # GET /jobs/new
   def new
-    @job = current_user.jobs.new
+    @job = Job.new
+    # @job = current_user.jobs.new
   end
 
   # GET /jobs/1/edit

@@ -1,10 +1,19 @@
-<% if user_signed_in? %>
-	You are signed in as <%= current_user.email %>. Not you? 
-	<%= link_to "Sign out", destroy_user_session_path, :method => :delete %> | 
-	<%= link_to "Create your resume", new_resume_path %>
-<% else %>
-	<%= link_to "", new_user_registration_path %> or <%= link_to "Sign in", new_user_session_path %>
-<% end %>
-
- <li>Edit your profile: <%= link_to current_user.email, edit_user_registration_path %></li>
+<div class="card single-card-container">
+	<% content_for :title do %>Profile<% end %>
+	<h3>Profile</h3> <br>
+	<b>Edit your profile:</b> <%= link_to current_user.email, edit_user_registration_path %> <br>
+	<% if user_signed_in? %>
+		<%= link_to "Sign out", destroy_user_session_path, :method => :delete %> | 
+		<%= link_to "Create your resume", new_resume_path %>
+	<% else %>
+		<%= link_to "", new_user_registration_path %> or <%= link_to "Sign in", new_user_session_path %>
+	<% end %> <br>
+	<hr>
+	<h3>Resume</h3> <br>
+	<b>Personality Traits:</b> <%= @resume.personality_traits %> <br>
+	<b>Summary:</b> <%= @resume.summary %> <br>
+	<b>Languages:</b> <%= @resume.languages %> <br>
+	<b>Education History:</b> <%= @resume.education_history %> <br>
+	<b>Work History:</b> <%= @resume.work_history %> <br>
+</div>
 
