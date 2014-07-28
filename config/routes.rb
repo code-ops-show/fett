@@ -4,7 +4,10 @@ Rails.application.routes.draw do
 
   devise_for :users, controllers: { registrations: "users", omniauth_callbacks: "omniauth_callbacks" }
   root 'landing_page#index' # Root of the page 
-  resources :jobs, :resumes # RESTful routes for the main resources
+  resources :resumes # RESTful routes for the main resources
+  resources :jobs do
+    resources :comments
+  end
   match 'profile', to: 'dashboard#index', via: :all # Custom routes for user's dashboard
 
   # The priority is based upon order of creation: first created -> highest priority.

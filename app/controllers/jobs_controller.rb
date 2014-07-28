@@ -1,5 +1,7 @@
 class JobsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :new]
+  before_action :edit
+
 
   # GET /jobs
   # GET /jobs.json
@@ -65,7 +67,7 @@ class JobsController < ApplicationController
 end
 
   private
-
+  @job = 
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def job_params

@@ -36,5 +36,28 @@
   <%= @job.longtitude %>
 </p>
 
+<h2>Comment on this job</h2>
+
+
+<%= form_for([@job, @job.comments.build]) do |f| %>
+  <p>
+    <%= f.label :body %><br>
+    <%= f.text_area :body %>
+  </p>
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>
+
+
+<h2>Comments</h2>
+<% @job.comments.each do |comment| %>
+  <p>
+    <strong>Comment:</strong>
+    <%= comment.body %>
+  </p>
+<% end %>
+
+
 <%= link_to 'Edit', edit_job_path(@job) %> |
 <%= link_to 'Back', jobs_path %>

@@ -1,5 +1,6 @@
 class Job < ActiveRecord::Base
 	belongs_to :user
+	has_many :comments
 	#Validations
 	validates :user_id, presence: true
 	validates :title, length: { minimum: 10 }, presence: true
