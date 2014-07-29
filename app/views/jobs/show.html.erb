@@ -56,6 +56,9 @@
     <strong>Comment:</strong>
     <%= comment.body %>
   </p>
+  <%= link_to 'Delete', [job_comment_path],
+               method: :destroy,
+               data: { confirm: 'Are you sure?' } %>
 <% end %>
 
 

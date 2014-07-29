@@ -1,18 +1,19 @@
 class JobsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :new]
+  before_action :get_job, only: [:show, :edit, :update, :destroy]
+  before_action :check_auth, only: [:edit, :update, :destroy]
+
 
 
   # GET /jobs
   # GET /jobs.json
   def index
-    @jobs = Job.all
-    @user = User.find(current_user.id)
+    @jobs, @user = Job.all, User.find(current_user.id)
   end
 
   # GET /jobs/1
   # GET /jobs/1.json
   def show
-    @job = Job.find(params[:id]) 
   end
 
   # GET /jobs/new
@@ -23,8 +24,6 @@ class JobsController < ApplicationController
 
   # GET /jobs/1/edit
   def edit
-    @job = Job.find(params[:id])
-    redirect_to(jobs_path, notice: "Can't do that homes") unless @job.user_id == current_user.id
   end
 
   # POST /jobs
@@ -56,17 +55,20 @@ class JobsController < ApplicationController
   # DELETE /jobs/1
   # DELETE /jobs/1.json
   def destroy
-    @job = Job.find(params[:id])
-    if  @job.user_id == current_user.id
-      @job.destroy
-      redirect_to(jobs_path, notice: "The post was deleted successfully amigo!")
-    else
-      redirect_to(jobs_path, notice: "Can't do that homes")
   end
-end
 
   private
-  @job = 
+  
+  def get_job
+    @job = Job.find(params[:id])
+  end
+
+  def check_auth
+    if  current_user.id != Job.params(:user_id)
+      flash[:notice] = 'You do not have permission to do that.'
+      redirect_to jobs_path
+    end
+  end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def job_params
