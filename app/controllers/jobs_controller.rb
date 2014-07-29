@@ -1,6 +1,5 @@
 class JobsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :new]
-  before_action :edit
 
 
   # GET /jobs
