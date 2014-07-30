@@ -36,10 +36,18 @@
   <%= @job.longtitude %>
 </p>
 
-<h2>Comment on this job</h2>
+
+<h2>Apply</h2>
+
+<%= link_to 'Apply', job_apply_path(@job.id), method: :post %>
 
 
-<%= form_for([@job, @job.comments.build]) do |f| %>
+<br>
+
+<h2>Comment</h2>
+
+
+<%= form_for([@job, Comment.new]) do |f| %>
   <p>
     <%= f.label :body %><br>
     <%= f.text_area :body %>
@@ -56,11 +64,13 @@
     <strong>Comment:</strong>
     <%= comment.body %>
   </p>
-  <%= link_to 'Delete', [job_comment_path],
-               method: :destroy,
+  <%= link_to 'Delete', job_comment_path(@job, comment),
+               method: :delete,
                data: { confirm: 'Are you sure?' } %>
+  <%= link_to 'Edit', edit_job_comment_path(@job, comment) %>
 <% end %>
 
+<hr>
 
 <%= link_to 'Edit', edit_job_path(@job) %> |
 <%= link_to 'Back', jobs_path %>

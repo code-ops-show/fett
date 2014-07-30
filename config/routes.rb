@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   resources :resumes # RESTful routes for the main resources
   resources :jobs do
     resources :comments
+    resource :apply, only: [:create, :destroy]
   end
   match 'profile', to: 'dashboard#index', via: :all # Custom routes for user's dashboard
 

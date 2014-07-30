@@ -21,7 +21,7 @@
 				<b>Longtitude:</b>
 				<%= job.longtitude %> <br>
 				<%= link_to 'Show', job %>
-				<% if @user && @user.id == job.user_id %>
+				<% if current_user && current_user.id == job.user_id %>
 						<%= link_to 'Edit', edit_job_path(job) %>
 						<%= link_to 'Destroy', job, method: :delete, data: { confirm: 'Are you sure?' } %>
 				<% end %>

@@ -12,7 +12,7 @@ class CommentsController < ApplicationController
     @job = Job.find(params[:job_id])
     @comment = @job.comments.find(params[:id])
     @comment.destroy
-    redirect_to article_path(@job)
+    redirect_to job_path(@job)
   end
 
 

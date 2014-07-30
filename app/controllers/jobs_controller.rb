@@ -8,7 +8,7 @@ class JobsController < ApplicationController
   # GET /jobs
   # GET /jobs.json
   def index
-    @jobs, @user = Job.all, User.find(current_user.id)
+    @jobs = Job.all
   end
 
   # GET /jobs/1
@@ -29,7 +29,7 @@ class JobsController < ApplicationController
   # POST /jobs
   # POST /jobs.json
   def create
-    @job = current_user.jobs.new(job_params)
+    @job = current_user.jobs.build(job_params)
     if @job.save
       redirect_to(jobs_path, notice: "Job was created succesfully amigo!")
     else
@@ -64,7 +64,7 @@ class JobsController < ApplicationController
   end
 
   def check_auth
-    if  current_user.id != Job.params(:user_id)
+    if  current_user.id != @job.user_id
       flash[:notice] = 'You do not have permission to do that.'
       redirect_to jobs_path
     end
